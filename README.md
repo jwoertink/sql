@@ -26,13 +26,17 @@ require "sql"
 # NOTE: This is all experimental playground and this may change
 builder = SQL.builder
 
-statement = SQL_Select.new
-statement.write("1 + 1")
+select_statement = SQL_Select.new
+select_statement.write("name")
 
-builder.tree << statement
-sql = builder.build
+from_statement = SQL_From.new
+from_statement.write("people")
 
-puts sql #=> SELECT 1 + 1
+builder.add(select_statement)
+builder.add(from_statement)
+builder.build
+
+puts builder.to_s #=> SELECT name FROM people
 ```
 
 ## Development
