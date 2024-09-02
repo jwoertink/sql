@@ -8,6 +8,6 @@
 Style/TypeNames:
   Description: Enforces type names in camelcase manner
   Excluded:
-  - src/sql/components/select.cr
+  - src/sql/components/*
   Enabled: true
   Severity: Convention
